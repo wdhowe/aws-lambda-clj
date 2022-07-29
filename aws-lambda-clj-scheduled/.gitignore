@@ -1,4 +1,3 @@
-.aws-sam/
 .calva/output-window/
 .classpath
 .clj-kondo/.cache
@@ -26,5 +25,4 @@
 /checkouts
 /classes
 /target
-/lib/
 samconfig.toml
