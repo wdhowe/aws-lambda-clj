@@ -30,7 +30,7 @@ Resources:
     Metadata:
       DockerContext: ./
       Dockerfile: Dockerfile
-      DockerTag: clojure-aws-lambda-1.0.0
+      DockerTag: clojure-lambda-1.0.0
 
 Outputs:
   ClojureLambdaFn:
