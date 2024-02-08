@@ -15,25 +15,40 @@ Install AWS SAM
 pip3 install aws-sam-cli
 ```
 
-## Use
+## Build
 
-Build and Test Lambda Locally
+Build the container and serverless app.
 
 ```bash
-sam build  # any change to the sam template.yaml must be re-built.
+# Any change to the sam template.yaml requires a 'sam build'.
+sam build
+```
+
+## Test
+
+Test the Lambda function locally.
+
+```bash
 sam local invoke --event test/aws_lambda_clj_scheduled/resources/scheduled_event.json
 ```
 
-Deploy to the cloud
+## Deploy
+
+Deploy with prompts.
 
 ```bash
-# deploy with prompts
 sam deploy --guided
+```
 
-# deploy with a specific aws cli credential profile and prompts
+Deploy with a specific aws cli credential profile and prompts.
+
+```bash
 sam deploy --profile MY-AWS-PROFILE --guided
+```
 
-# deploy without prompts
+Deploy without prompts.
+
+```bash
 sam deploy \
 --stack-name MY-STACK-NAME \
 --s3-bucket MY-BUCKET \
@@ -43,11 +58,19 @@ sam deploy \
 --no-fail-on-empty-changeset
 ```
 
-Watching logs and deleting the deployment
+## Monitor
+
+Watching deployment logs.
 
 ```bash
 sam logs --stack-name MY-STACK-NAME
+```
 
+## Manage
+
+Deleting the deployment.
+
+```bash
 sam delete --stack-name MY-STACK-NAME
 ```
 
