@@ -30,7 +30,7 @@ Resources:
             Description: Event that triggers the lambda every 30 minutes
             Enabled: true
     Metadata:
-      DockerTag: clojure-aws-lambda-example-v1
+      DockerTag: clojure-aws-lambda-1.0.0
       DockerContext: ./
       Dockerfile: Dockerfile
 
