@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  clojure-lambda-fn
-  Sample SAM Template for clojure-lambda-fn
+  clojure-lambda
+  Sample SAM Template for clojure-lambda
 
 # SAM Reference Docs
 # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification.html
@@ -12,7 +12,7 @@ Globals:
     Timeout: 20
 
 Resources:
-  ClojureLambdaFn:
+  ClojureLambda:
     Type: AWS::Serverless::Function
     Properties:
       Architectures:
@@ -33,9 +33,9 @@ Resources:
       DockerTag: clojure-lambda-1.0.0
 
 Outputs:
-  ClojureLambdaFn:
+  ClojureLambda:
     Description: "Clojure Lambda Function ARN"
-    Value: !GetAtt ClojureLambdaFn.Arn
-  ClojureLambdaFnIamRole:
+    Value: !GetAtt ClojureLambda.Arn
+  ClojureLambdaIamRole:
     Description: "IAM Role auto created for Clojure Lambda Function"
-    Value: !GetAtt ClojureLambdaFnRole.Arn
+    Value: !GetAtt ClojureLambdaRole.Arn
