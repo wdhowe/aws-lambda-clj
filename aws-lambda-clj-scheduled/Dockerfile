@@ -9,11 +9,11 @@ ENV APP_DIR=/usr/src/app
 WORKDIR ${APP_DIR}
 
 # Cache deps so they aren't fetched every time a .clj file changes
-COPY build.clj ${APP_DIR}
 COPY deps.edn ${APP_DIR}
 RUN clj -P
 
 # Copy source files and tests
+COPY build.clj ${APP_DIR}
 COPY src/ ${APP_DIR}/src
 COPY test/ ${APP_DIR}/test
 
@@ -28,4 +28,4 @@ WORKDIR /opt/app
 COPY --from=builder /usr/src/app/app.jar app.jar
 
 ENTRYPOINT [ "java", "-cp", "/opt/app/app.jar", "com.amazonaws.services.lambda.runtime.api.client.AWSLambda" ]
-CMD ["aws_lambda_clj_scheduled.aws_lambda_clj_scheduled::handleRequest"]
+CMD ["aws_lambda_clj_scheduled.core::handleRequest"]

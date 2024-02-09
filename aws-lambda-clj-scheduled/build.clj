@@ -17,11 +17,11 @@
 (def project
   "Project Metadata"
   {:description "A hello world AWS Lambda function in Clojure."
-   :lib 'net.clojars.aws-lambda-clj-scheduled/aws-lambda-clj-scheduled
-   :main 'aws-lambda-clj-scheduled.aws-lambda-clj-scheduled
+   :lib 'com.github.wdhowe/aws-lambda-clj
+   :main 'aws-lambda-clj-scheduled.core
    :version "1.0.0"
    :license "Eclipse Public License"
-   :license-url "http://www.eclipse.org/legal/epl-v20.html"
+   :license-url "http://www.eclipse.org/legal/epl-v10.html"
    :author "Bill Howe"
    :url "https://github.com/wdhowe/aws-lambda-clj"
    :git-repo "wdhowe/aws-lambda-clj"
@@ -103,7 +103,8 @@
     (b/copy-dir {:src-dirs ["resources" "src"]
                  :target-dir (:class-dir project)})
     (println "\nBuilding JAR" (:jar-file opts) "...")
-    (b/jar opts))
+    (b/jar opts)
+    (println (format "Created %s" (:jar-file opts))))
   opts)
 
 (defn uberjar

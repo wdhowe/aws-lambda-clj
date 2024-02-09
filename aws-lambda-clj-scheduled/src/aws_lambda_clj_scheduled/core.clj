@@ -1,4 +1,4 @@
-(ns aws-lambda-clj-scheduled.aws-lambda-clj-scheduled
+(ns aws-lambda-clj-scheduled.core
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io])
   (:gen-class
