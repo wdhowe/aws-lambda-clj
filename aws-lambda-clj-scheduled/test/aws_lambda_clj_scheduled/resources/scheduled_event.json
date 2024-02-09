@@ -9,5 +9,7 @@
     "resources": [
         "arn:aws:events:us-east-1:123456789012:rule/my-scheduled-rule"
     ],
-    "detail": {}
+    "detail": {
+        "my-data": "custom data"
+    }
 }

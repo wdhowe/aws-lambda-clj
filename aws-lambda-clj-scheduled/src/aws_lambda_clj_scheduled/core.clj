@@ -1,4 +1,4 @@
-(ns aws-lambda-clj-scheduled.aws-lambda-clj-scheduled
+(ns aws-lambda-clj-scheduled.core
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io])
   (:gen-class
@@ -12,4 +12,5 @@
 (defn -handleRequest
   "Implementation for RequestStreamHandler that handles a Lambda Function request"
   [_ input-stream _output-stream _context]
-  (println "-handleRequest called with input stream:" (stream->map input-stream)))
+  (->> (stream->map input-stream)
+       (println "-handleRequest called with input stream:")))
