@@ -52,10 +52,11 @@ Deploy without prompts.
 sam deploy \
 --stack-name MY-STACK-NAME \
 --s3-bucket MY-BUCKET \
---capabilities CAPABILITY_AUTO_EXPAND \
---region us-west-2 \
+--capabilities CAPABILITY_IAM \
 --resolve-image-repos \
---no-fail-on-empty-changeset
+--no-fail-on-empty-changeset \
+--region us-west-2 \
+--profile default
 ```
 
 ## Monitor
