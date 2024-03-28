@@ -1,6 +1,6 @@
 ##-- Source Build --##
 # Docker container used to build the Clojure app
-FROM clojure:openjdk-11-slim-buster as builder
+FROM clojure:openjdk-11-lein as builder
 
 # Environment settings
 ENV APP_DIR=/usr/src/app
@@ -8,20 +8,20 @@ ENV APP_DIR=/usr/src/app
 # Setup the directories
 WORKDIR ${APP_DIR}
 
-# Cache deps so they aren't fetched every time a .clj file changes
-COPY deps.edn ${APP_DIR}
-RUN clj -P
+# Download application dependencies
+COPY project.clj ${APP_DIR}
+RUN lein deps
 
 # Copy source files and tests
-COPY build.clj ${APP_DIR}
 COPY src/ ${APP_DIR}/src
 COPY test/ ${APP_DIR}/test
 
 # Test, build, and symlink to the built uberjar.
-RUN ln -s "$(clj -T:build uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" ${APP_DIR}/app.jar
+RUN lein test && \
+    ln -s "$(lein uberjar | sed -n 's/^Created \(.*standalone\.jar\)/\1/p')" app.jar
 
 ##-- Runtime --##
-# Build the docker container with the above artifact that we will use in the lambda.
+# Build the docker container with the above artifact for use in the lambda.
 FROM eclipse-temurin:11-focal
 
 WORKDIR /opt/app
