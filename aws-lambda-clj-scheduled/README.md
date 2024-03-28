@@ -77,7 +77,7 @@ sam delete --stack-name MY-STACK-NAME
 
 ## License
 
-Copyright © 2020-2024 Bill Howe
+Copyright © 2022-2024 Bill Howe
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
