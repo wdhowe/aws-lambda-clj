@@ -1,4 +1,4 @@
-(defproject com.github.wdhowe/aws-lambda-clj-scheduled "0.1.0"
+(defproject com.github.wdhowe/aws-lambda-clj-scheduled "0.2.0"
 
   ;;; Project Metadata
   :description "A simple AWS Lambda function that prints the request stream."
@@ -7,9 +7,9 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
 
   ;;; Dependencies, Plugins
-  :dependencies [[org.clojure/clojure "1.11.2"]
+  :dependencies [[org.clojure/clojure "1.11.3"]
                  [org.clojure/data.json "2.5.0"]
-                 [com.amazonaws/aws-lambda-java-runtime-interface-client "2.4.1"]]
+                 [com.amazonaws/aws-lambda-java-runtime-interface-client "2.5.0"]]
 
   ;;; Profiles
   :profiles {:uberjar {:aot :all}}
