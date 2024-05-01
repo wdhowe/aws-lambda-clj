@@ -2,6 +2,8 @@
 
 This project was created based on [this blog post](https://wtfleming.github.io/blog/clojure-aws-lambda/).
 
+This is a Clojure (JVM based) AWS Lambda function in Docker, running on a schedule.
+
 ## Pre-reqs
 
 Install Clojure and the Leiningen Project Tool
