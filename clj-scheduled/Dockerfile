@@ -28,4 +28,4 @@ WORKDIR /opt/app
 COPY --from=builder /usr/src/app/app.jar app.jar
 
 ENTRYPOINT [ "java", "-cp", "/opt/app/app.jar", "com.amazonaws.services.lambda.runtime.api.client.AWSLambda" ]
-CMD ["aws_lambda_clj_scheduled.core::handleRequest"]
+CMD ["clj_scheduled.core::handleRequest"]

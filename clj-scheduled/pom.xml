@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.wdhowe</groupId>
-  <artifactId>aws-lambda-clj-scheduled</artifactId>
+  <artifactId>clj-scheduled</artifactId>
   <packaging>jar</packaging>
   <version>0.2.0</version>
-  <name>aws-lambda-clj-scheduled</name>
+  <name>clj-scheduled</name>
   <description>A simple AWS Lambda function that prints the request stream.</description>
   <url>https://github.com/wdhowe/aws-lambda-clj</url>
   <licenses>

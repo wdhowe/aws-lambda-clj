@@ -1,4 +1,4 @@
-(defproject com.github.wdhowe/aws-lambda-clj-scheduled "0.2.0"
+(defproject com.github.wdhowe/clj-scheduled "0.2.0"
 
   ;;; Project Metadata
   :description "A simple AWS Lambda function that prints the request stream."
@@ -15,4 +15,4 @@
   :profiles {:uberjar {:aot :all}}
 
   ;;; Running Project Code
-  :repl-options {:init-ns aws-lambda-clj-scheduled.core})
+  :repl-options {:init-ns clj-scheduled.core})

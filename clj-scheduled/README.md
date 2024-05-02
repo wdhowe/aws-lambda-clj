@@ -1,4 +1,4 @@
-# aws-lambda-clj-scheduled
+# clj-scheduled
 
 This project was created based on [this blog post](https://wtfleming.github.io/blog/clojure-aws-lambda/).
 
