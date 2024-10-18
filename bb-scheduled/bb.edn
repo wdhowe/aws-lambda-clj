@@ -1,0 +1,15 @@
+{:deps {net.jmglov/blambda
+        {:git/url "https://github.com/jmglov/blambda.git"
+         :git/tag "v0.2.0"
+         :git/sha "fa394bb"}}
+ :tasks
+ {:requires ([blambda.cli :as blambda])
+  blambda {:doc "Controls Blambda runtime and layers"
+           :task (blambda/dispatch
+                  {:deps-path "src/deps/bb.edn"
+                   :deps-layer-name "handler-deps"
+                   :lambda-name "handler"
+                   :lambda-handler "handler/handler"
+                   ;:lambda-iam-role "arn:aws:iam::123456789100:role/hello-lambda"
+                   :source-dir "src"
+                   :source-files ["handler.clj"]})}}}

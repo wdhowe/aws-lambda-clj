@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SAM template for a babashka-lambda function.
+
+# SAM Reference Docs
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification.html
+
+Globals:
+  Function:
+    Timeout: 30
+
+Resources:
+  BBLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: bblambda-hello-world
+      CodeUri: .
+      Handler: handler/handler
+      Runtime: provided.al2023
+      Layers:
+        - !Ref RuntimeLayer
+      Architectures:
+        - x86_64
+      MemorySize: 256
+      #Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/custom/my-lambda-execution-role-here"
+      Events:
+        ScheduleEvent:
+          Type: ScheduleV2
+          Properties:
+            Description: Event that triggers the lambda every 30 minutes
+            ScheduleExpression: rate(30 minutes)
+            State: ENABLED
+    Metadata:
+      BuildMethod: makefile
+
+  RuntimeLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+        LayerName: RuntimeLayer
+        Description: Blambda Runtime for Babashka
+        ContentUri: ./target/blambda.zip
+        CompatibleRuntimes:
+          - provided.al2023
+
+Outputs:
+  BBLambda:
+    Description: "Babashka Lambda Function ARN"
+    Value: !GetAtt BBLambda.Arn
+  BBLambdaIamRole:
+    Description: "IAM Role auto created for Babashka Lambda Function"
+    Value: !GetAtt BBLambdaRole.Arn
