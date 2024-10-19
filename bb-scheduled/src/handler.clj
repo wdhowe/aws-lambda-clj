@@ -1,8 +1,13 @@
 (ns handler)
 
+(defn process-event
+  "Sample fn to process an event."
+  [event]
+  (get-in event [:detail :my-data] "done"))
+
 (defn handler
   "Entrypoint for the lambda function."
-  [{:keys [name] :or {name "World"} :as event} _context]
+  [event _context]
   (prn {:msg "Invoked with event",
-        :data {:event event}})
-  {:greeting (str "Hello " name "!")})
+        :event event})
+  (process-event event))
