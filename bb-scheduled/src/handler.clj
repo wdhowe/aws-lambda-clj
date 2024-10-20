@@ -8,6 +8,6 @@
 (defn handler
   "Entrypoint for the lambda function."
   [event _context]
-  (prn {:msg "Invoked with event",
+  (prn {:msg "Invoked with event"
         :event event})
   (process-event event))
